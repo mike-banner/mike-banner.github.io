@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compteur de Pompes IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💪 Compteur de Pompes IA</h1>
+            <p>Détection automatique par caméra</p>
+        </header>
+
+        <div class="grid">
+            <!-- Zone caméra -->
+            <div class="card camera-section">
+                <div class="video-container" id="videoContainer">
+                    <div class="camera-placeholder" id="cameraPlaceholder">
+                        <div class="camera-icon">📷</div>
+                        <p>Prêt à commencer ?</p>
+                        <button class="btn btn-start" id="startBtn">▶ Démarrer</button>
+                    </div>
+                    <video id="video" autoplay playsinline muted></video>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                    <div class="motion-indicator" id="motionIndicator">MOUVEMENT DÉTECTÉ</div>
+                </div>
+
+                <div class="alert alert-error" id="errorMsg" style="display: none;"></div>
+
+                <div class="counter-display">
+                    <div class="counter-number" id="counter">0</div>
+                    <div class="counter-label">pompes cette session</div>
+                    <div class="position-indicator" id="positionIndicator">⬇️ POSITION BASSE</div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-stop" id="stopBtn" style="display: none;">⏸ Terminer</button>
+                    <button class="btn btn-reset" id="resetBtn">↻ Reset</button>
+                </div>
+            </div>
+
+            <!-- Statistiques -->
+            <div class="stats-section">
+                <div class="card">
+                    <h2>📊 Statistiques</h2>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-value" id="totalCount">0</div>
+                            <div class="stat-label">Total de pompes</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value stat-value-green" id="sessionCount">0</div>
+                            <div class="stat-label">Sessions</div>
+                        </div>
+                    </div>
+                    <div class="record-box" id="recordBox" style="display: none;">
+                        <div class="record-icon">🏆</div>
+                        <span class="record-label">Record</span>
+                        <div class="record-value" id="recordValue">0 pompes</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>📅 Historique</h2>
+                    <div id="history" class="history-list">
+                        <p class="empty-state">Aucune session enregistrée</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="card instructions">
+            <h3>📋 Comment ça marche ?</h3>
+            <ol>
+                <li>Cliquez sur "Démarrer" et autorisez l'accès à la caméra</li>
+                <li>Placez-vous devant la caméra en position de pompe</li>
+                <li>L'IA détecte automatiquement vos mouvements de haut en bas</li>
+                <li>Le compteur s'incrémente à chaque répétition complète</li>
+                <li>Cliquez sur "Terminer" pour sauvegarder votre session</li>
+            </ol>
+            <p class="tip">💡 Astuce : Faites des mouvements amples pour une meilleure détection !</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
