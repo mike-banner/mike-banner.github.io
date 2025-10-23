@@ -1,4 +1,4 @@
-# 💪 Compteur de Pompes IA
+# Compteur de Pompes
 
 Application web gratuite pour compter vos pompes automatiquement avec votre caméra.
 
